@@ -1,6 +1,12 @@
 # wopr-plugin-signal
 
+[![npm version](https://img.shields.io/npm/v/wopr-plugin-signal.svg)](https://www.npmjs.com/package/wopr-plugin-signal)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![WOPR](https://img.shields.io/badge/WOPR-Plugin-blue)](https://github.com/TSavo/wopr)
+
 Signal integration for [WOPR](https://github.com/TSavo/wopr) using [signal-cli](https://github.com/AsamK/signal-cli).
+
+> Part of the [WOPR](https://github.com/TSavo/wopr) ecosystem - Self-sovereign AI session management over P2P.
 
 ## Features
 
