@@ -10,6 +10,8 @@
 
 Part of the [WOPR](https://github.com/TSavo/wopr) ecosystem - Self-sovereign AI session management over P2P.
 
+**Requires:** WOPR 2.0.0 or later
+
 ---
 
 ## 📋 Table of Contents
@@ -55,10 +57,11 @@ brew install signal-cli
 **Ubuntu/Debian:**
 ```bash
 # Download latest release from https://github.com/AsamK/signal-cli/releases
-# Example for v0.13.12:
-wget https://github.com/AsamK/signal-cli/releases/download/v0.13.12/signal-cli-0.13.12-linux-x86_64.tar.gz
-tar -xzf signal-cli-0.13.12-linux-x86_64.tar.gz
-sudo mv signal-cli-0.13.12 /opt/signal-cli
+# Replace VERSION with the latest version number (e.g., 0.13.12)
+VERSION="0.13.12"  # Check releases page for latest
+wget "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-linux-x86_64.tar.gz"
+tar -xzf "signal-cli-${VERSION}-linux-x86_64.tar.gz"
+sudo mv "signal-cli-${VERSION}" /opt/signal-cli
 sudo ln -s /opt/signal-cli/bin/signal-cli /usr/local/bin/
 ```
 
@@ -183,11 +186,12 @@ The plugin will automatically connect to signal-cli and start receiving messages
 | `cliPath` | string | `"signal-cli"` | Path to signal-cli executable |
 | `httpHost` | string | `"127.0.0.1"` | Daemon HTTP host (use 127.0.0.1 for security) |
 | `httpPort` | number | `8080` | Daemon HTTP port |
+| `httpUrl` | string | - | Full daemon URL (overrides httpHost/httpPort) |
 | `autoStart` | boolean | `true` | Auto-start signal-cli daemon |
 | `dmPolicy` | string | `"pairing"` | DM handling: `allowlist`, `pairing`, `open`, `disabled` |
 | `allowFrom` | array | `[]` | Allowed phone numbers/UUIDs for DMs |
 | `groupPolicy` | string | `"allowlist"` | Group handling: `allowlist`, `open`, `disabled` |
-| `groupAllowFrom` | array | `[]` | Allowed group IDs |
+| `groupAllowFrom` | array | `[]` | Allowed group IDs (falls back to `allowFrom` if empty) |
 | `mediaMaxMb` | number | `8` | Maximum attachment size in MB |
 | `ignoreAttachments` | boolean | `false` | Skip downloading attachments |
 | `ignoreStories` | boolean | `false` | Ignore story updates |
@@ -201,28 +205,31 @@ channels:
   signal:
     # Required
     account: "+1234567890"
-    
+
     # Daemon settings
     cliPath: "/usr/local/bin/signal-cli"
     httpHost: "127.0.0.1"
     httpPort: 8080
+    # Or use httpUrl to override host/port: "http://localhost:8080"
     autoStart: true
-    
+
     # Security policies
     dmPolicy: "allowlist"           # Only allow specific senders
     allowFrom:
       - "+15555550123"
       - "+15555550456"
       - "uuid:123e4567-e89b-12d3-a456-426614174000"
-    
+
     groupPolicy: "allowlist"
     groupAllowFrom:
       - "group:abc123..."
-    
+
     # Media handling
     mediaMaxMb: 16
     ignoreAttachments: false
     ignoreStories: true
+
+    # Message handling
     sendReadReceipts: true
     receiveMode: "native"
 ```

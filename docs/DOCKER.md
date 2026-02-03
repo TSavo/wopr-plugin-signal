@@ -187,6 +187,7 @@ docker run -d \
 # Build stage
 FROM eclipse-temurin:21-jdk-alpine AS builder
 
+# Check https://github.com/AsamK/signal-cli/releases for latest version
 ARG SIGNAL_CLI_VERSION=0.13.12
 
 RUN apk add --no-cache wget tar
@@ -198,6 +199,7 @@ RUN wget "https://github.com/AsamK/signal-cli/releases/download/v${SIGNAL_CLI_VE
 # Runtime stage
 FROM eclipse-temurin:21-jre-alpine
 
+# Check https://github.com/AsamK/signal-cli/releases for latest version
 ARG SIGNAL_CLI_VERSION=0.13.12
 
 RUN apk add --no-cache curl

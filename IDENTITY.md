@@ -52,9 +52,12 @@ channels:
     dmPolicy: "pairing"
     allowFrom: []
     groupPolicy: "allowlist"
+    groupAllowFrom: []
     mediaMaxMb: 8
     ignoreAttachments: false
+    ignoreStories: false
     sendReadReceipts: false
+    receiveMode: "native"
 ```
 
 ## Architecture

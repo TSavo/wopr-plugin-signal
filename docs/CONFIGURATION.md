@@ -439,20 +439,18 @@ channels:
 
 ## 🌍 Environment Variables
 
-Some settings can be overridden via environment variables:
+The plugin recognizes the following environment variable:
 
 | Variable | Description |
 |----------|-------------|
-| `WOPR_HOME` | Base directory for WOPR files (`~/.wopr`) |
-| `SIGNAL_CLI_PATH` | Path to signal-cli executable |
-| `SIGNAL_ACCOUNT` | Signal phone number |
+| `WOPR_HOME` | Base directory for WOPR files (default: `~/.wopr`) |
 
 Example:
 ```bash
 export WOPR_HOME=/var/lib/wopr
-export SIGNAL_CLI_PATH=/opt/signal-cli/bin/signal-cli
-export SIGNAL_ACCOUNT="+1234567890"
 ```
+
+**Note:** The `cliPath` and `account` settings should be configured in your WOPR config file, not via environment variables. The plugin reads these from the YAML configuration.
 
 ---
 

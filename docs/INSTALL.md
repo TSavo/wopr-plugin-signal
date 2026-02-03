@@ -44,7 +44,7 @@ signal-cli --version
 ```bash
 # Download latest release
 # Visit https://github.com/AsamK/signal-cli/releases for latest version
-VERSION="0.13.12"
+VERSION="0.13.12"  # Check releases page for latest
 curl -L -o signal-cli.tar.gz \
   "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-macOS-x86_64.tar.gz"
 
@@ -52,7 +52,7 @@ curl -L -o signal-cli.tar.gz \
 tar -xzf signal-cli.tar.gz
 
 # Move to system location
-sudo mv signal-cli-${VERSION} /opt/signal-cli
+sudo mv "signal-cli-${VERSION}" /opt/signal-cli
 sudo ln -s /opt/signal-cli/bin/signal-cli /usr/local/bin/signal-cli
 
 # Verify
@@ -80,8 +80,8 @@ brew install openjdk@21
 ```bash
 # Download latest release
 # Check https://github.com/AsamK/signal-cli/releases for latest version
-VERSION="0.13.12"
-ARCH="x86_64"  # Change to "aarch64" for ARM64
+VERSION="0.13.12"  # Check releases page for latest
+ARCH="x86_64"      # Change to "aarch64" for ARM64
 
 wget "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-linux-${ARCH}.tar.gz"
 
@@ -155,7 +155,8 @@ sudo pacman -S signal-cli
 
 ```bash
 # Download and install manually (same as Ubuntu)
-VERSION="0.13.12"
+# Check https://github.com/AsamK/signal-cli/releases for latest version
+VERSION="0.13.12"  # Check releases page for latest
 ARCH="x86_64"
 
 wget "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-linux-${ARCH}.tar.gz"
@@ -198,7 +199,8 @@ sudo apt update
 sudo apt install openjdk-21-jre
 
 # 2. Download signal-cli
-VERSION="0.13.12"
+# Check https://github.com/AsamK/signal-cli/releases for latest version
+VERSION="0.13.12"  # Check releases page for latest
 wget "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-linux-x86_64.tar.gz"
 tar -xzf "signal-cli-${VERSION}-linux-x86_64.tar.gz"
 sudo mv "signal-cli-${VERSION}" /opt/signal-cli
@@ -247,7 +249,7 @@ After installation, verify signal-cli works:
 ```bash
 # Check version
 signal-cli --version
-# Expected: signal-cli 0.13.12
+# Example output: signal-cli 0.13.12 (version may vary)
 
 # Check account status
 signal-cli listAccounts
